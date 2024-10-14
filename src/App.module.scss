@@ -1,0 +1,13 @@
+body {
+  background-color: #f4f4f4;
+  padding: 1rem;
+}
+
+h2 {
+  font-family: 'Montserrat';
+  font-weight: 500;
+}
+
+.appWrapper:not(:has(.ant-flex-vertical)) {
+  flex-direction: row;
+}
