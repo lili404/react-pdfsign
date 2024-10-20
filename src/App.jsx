@@ -29,30 +29,44 @@ const App = () => {
   return (
     <Flex className={styles.app} gap="large" vertical>
       <h2>Sign Applier</h2>
-      {!pdfUrl && (
-        <UploadPDF
-          pdfUrl={pdfUrl}
-          setPdfUrl={setPdfUrl}
-          setPdfName={setPdfName}
-        />
-      )}
-      <Flex className={styles.appWrapper} gap="large" vertical={!!pdfUrl}>
-        {pdfUrl && (
-          <Preview
+
+      <Flex className={styles.appWrapper} gap="large" vertical={pdfUrl}>
+        {!pdfUrl && (
+          <UploadPDF
             pdfUrl={pdfUrl}
-            pdfPageSize={pdfPageSize}
-            setPdfPageSize={setPdfPageSize}
-            pageNumber={pageNumber}
-            setPageNumber={setPageNumber}
-            pageCount={pageCount}
-            setPageCount={setPageCount}
-            canvasRef={canvasRef}
-            canvas={canvas}
-            setCanvas={setCanvas}
-            objects={objects}
-            setObjects={setObjects}
+            setPdfUrl={setPdfUrl}
+            setPdfName={setPdfName}
           />
         )}
+
+        {pdfUrl && (
+          <Flex vertical gap="middle">
+            <Flex align="center" gap="large">
+              <h3>{pdfName}</h3>
+              <UploadPDF
+                buttonText="Change PDF"
+                pdfUrl={pdfUrl}
+                setPdfUrl={setPdfUrl}
+                setPdfName={setPdfName}
+              />
+            </Flex>
+            <Preview
+              pdfUrl={pdfUrl}
+              pdfPageSize={pdfPageSize}
+              setPdfPageSize={setPdfPageSize}
+              pageNumber={pageNumber}
+              setPageNumber={setPageNumber}
+              pageCount={pageCount}
+              setPageCount={setPageCount}
+              canvasRef={canvasRef}
+              canvas={canvas}
+              setCanvas={setCanvas}
+              objects={objects}
+              setObjects={setObjects}
+            />
+          </Flex>
+        )}
+
         {pdfUrl && (
           <Toolbar
             pdfUrl={pdfUrl}

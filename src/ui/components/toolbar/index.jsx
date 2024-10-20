@@ -177,12 +177,6 @@ const Toolbar = ({
 
   return (
     <Flex className={styles.toolbar} gap="large" vertical>
-      <UploadPDF
-        buttonText="Change PDF"
-        pdfUrl={pdfUrl}
-        setPdfUrl={setPdfUrl}
-        setPdfName={setPdfName}
-      />
       <h2>Canvas</h2>
       <canvas ref={inputCanvasRef}></canvas>
       <Flex className={styles.inputCanvasActions} vertical gap="small">
